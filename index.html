@@ -21,6 +21,7 @@
             font-size: 90pt;
             color: aliceblue;
             background: #881515;
+            transition: opacity .8s ease-in;
         }
 
         #badge {
@@ -109,7 +110,6 @@
             font-family: "Exo";
             position: absolute;
         }
-
     </style>
 </head>
 
@@ -288,32 +288,25 @@
         //portion of code below sourced from https://stackoverflow.com/questions/32146295/how-can-i-make-my-header-disappear-and-reappear-by-clicking-a-button-and-also-ha
 
         document.getElementById('inner').onclick = function() {
-            gone = document.getElementById('header');
-            if (gone.style.display === "none") {
-                gone.style.display = 'block';
-            } else {
-                gone.style.display = "none";
-            }
+            let gone = document.getElementById('header');
+            gone.style.opacity = 0;
+            setTimeout(() => {
+                gone.style.display = 'none';
+            }, 795)
 
         };
 
 
         document.getElementById('enter').onclick = function() {
-            gone = document.getElementById('enter');
-            if (gone.style.display === "none") {
-                gone.style.display = 'block';
-            } else {
-                gone.style.display = "none";
-            }
-
-        };
+            let gone = document.getElementById('enter');
+            gone.style.opacity = 0;
+        }
 
 
 
 
 
         init();
-
     </script>
 </body>
 
