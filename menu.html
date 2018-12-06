@@ -33,7 +33,7 @@
         }
 
         .button {
-            margin-bottom: 30px;
+
             background: #881515;
             font-size: 20pt;
             color: aliceblue;
@@ -42,6 +42,9 @@
             border-radius: 5px;
             text-align: center;
             font-family: "Exo";
+
+
+
 
 
         }
@@ -78,8 +81,9 @@
 
         #menu {
             width: 200px;
-            margin-left: 30%;
-            margin-right: 30%;
+            height: 100%;
+            display: inline-block;
+
 
         }
 
@@ -103,8 +107,8 @@
         <a href="#" class="button" onclick="enter();">Enter</a>
     </div>
     <div id="menu">
-        <a href="#" class="button" onclick="burger();">Burger</a>
-        <a href="#" class="button" onclick="chicken();">Chicken</a>
-        <a href="#" class="button" onclick="pork();">Pork Chops</a>
+        <a href="#" id='burger' class="button" onclick="burger();">Burger</a>
+        <a href="#" id='chicken' class="button" onclick="chicken();">Chicken</a>
+        <a href="#" id='pork' class="button" onclick="pork();">Pork Chops</a>
 
     </div>
