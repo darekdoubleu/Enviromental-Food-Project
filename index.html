@@ -21,7 +21,7 @@
             font-size: 90pt;
             color: aliceblue;
             background: #881515;
-            transition: opacity .s ease-in;
+            transition: opacity .8s ease-in;
         }
 
         #badge {
@@ -109,10 +109,6 @@
             text-align: center;
             font-family: "Exo";
             position: absolute;
-        }
-        
-        #menu {
-        transition: opacity .8s ease-in;
         }
     </style>
 </head>
@@ -296,23 +292,19 @@
             gone.style.opacity = 0;
             setTimeout(() => {
                 gone.style.display = 'none';
-            }, 400)
+            }, 795)
 
         };
 
 
         document.getElementById('enter').onclick = function() {
-            let gone = document.getElementById('inner');
+            let gone = document.getElementById('enter');
             gone.style.opacity = 0;
         }
 
           document.getElementById('enter').onclick = function() {
             let gone = document.getElementById('menu');
-            gone.style.opacity = 0;
-            setTimeout(() => {
-                gone.style.display = 'none';
-            }, 795)
-
+            gone.style.display = 'block';
         }
 
 
