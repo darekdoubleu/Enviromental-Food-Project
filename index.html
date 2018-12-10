@@ -140,14 +140,14 @@
 
     <div id="inner">
         <a href="#" id="enter" class="button" onclick="enter();">Enter</a>
-    </div>
+   
     <div id="menu" style="display:none">
         <a href="#" class="button" onclick="burger();">Burger</a>
         <a href="#" class="button" onclick="chicken();">Chicken</a>
         <a href="#" class="button" onclick="pork();">Pork Chops</a>
 
     </div>
-
+ </div>
     <script>
         var scene, camera, renderer, raycaster;
         var mouse = new THREE.Vector2(),
@@ -299,7 +299,7 @@
 
         document.getElementById('enter').onclick = function() {
             let gone = document.getElementById('enter');
-            gone.style.opacity = 0;
+            gone.style.display = 'none';
         }
 
           document.getElementById('enter').onclick = function() {
