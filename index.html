@@ -165,12 +165,7 @@
             <p>test3</p>
         </div>
     </div>
-    <div id="next" style="display: none">
 
-        <p id="result"></p>
-        <a href="#" class="prev" onclick="prev()">&#8249;</a>
-        <a href="#" class="next" onclick="next()">&#8250;</a>
-    </div>
 
     <div id="inner">
         <a href="#" id="enter" class="button" onclick="enter();">Enter</a>
@@ -297,7 +292,7 @@
                 // .onComplete portion of code below sourced from https://github.com/sole/tween.js/blob/master/docs/user_guide.md       
                 .onComplete(function() {
                     document.getElementById('test2').style.display = "inline-block";
-                    document.getElementById('next').style.display = "inline-block";
+
 
                 })
                 .onclick(function() {
@@ -355,27 +350,6 @@
             gone.style.display = 'block';
         }
 
-
-        const resultBox = document.getElementById('result')
-        const messages = [];
-
-
-        const getNextIdx = (idx = 0, length, direction) => {
-            switch (direction) {
-                case 'next':
-                    return (idx + 1) % length;
-                case 'prev':
-                    return (idx == 0) && length - 1 || idx - 1;
-                default:
-                    return idx;
-            }
-        }
-
-        let idx; // idx is undefined, so getNextIdx will take 0 as default
-        const getNewIndexAndRender = (direction) => {
-            idx = getNextIdx(idx, length, direction);
-            result.innerHTML = messages[idx]
-        }
 
 
 
