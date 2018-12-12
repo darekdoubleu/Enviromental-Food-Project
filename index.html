@@ -155,6 +155,9 @@
         <div id="test" style="display:none">
             <p>test</p>
         </div>
+        <div id="nextbox" style="display:none">
+            <p>electric</p>
+        </div>
         <div id="test2" style="display:none">
             <p>test2</p>
         </div>
@@ -162,11 +165,11 @@
             <p>test3</p>
         </div>
     </div>
-    <div id="next">
+    <div id="next" style="display: none">
 
         <p id="result"></p>
-        <a href="#" class="prev" onclick="arrow">&#8249;</a>
-        <a href="#" class="next" onclick="arrow">&#8250;</a>
+        <a href="#" class="prev" onclick="prev()">&#8249;</a>
+        <a href="#" class="next" onclick="next()">&#8250;</a>
     </div>
 
     <div id="inner">
@@ -273,6 +276,7 @@
             pos1.start()
                 .onComplete(function() {
                     document.getElementById('test').style.display = "inline-block";
+                    document.getElementById('menu').style.display = "none";
                 });
 
         };
@@ -288,7 +292,10 @@
                 // .onComplete portion of code below sourced from https://github.com/sole/tween.js/blob/master/docs/user_guide.md       
                 .onComplete(function() {
                     document.getElementById('test2').style.display = "inline-block";
+                    document.getElementById('next').style.display = "inline-block";
+                    document.getElementById('menu').style.display = "none";
                 });
+
         };
 
         function pork() {
@@ -310,11 +317,11 @@
                 z: -170
             }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
             pos1.start()
-                .onComplete(function() {
 
-                });
 
         };
+
+
 
         //portion of code below sourced from https://stackoverflow.com/questions/32146295/how-can-i-make-my-header-disappear-and-reappear-by-clicking-a-button-and-also-ha
 
