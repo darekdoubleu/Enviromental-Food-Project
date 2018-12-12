@@ -276,8 +276,13 @@
             pos1.start()
                 .onComplete(function() {
                     document.getElementById('test').style.display = "inline-block";
+
+                })
+                .onclick(function() {
                     document.getElementById('menu').style.display = "none";
                 });
+
+
 
         };
 
@@ -293,9 +298,11 @@
                 .onComplete(function() {
                     document.getElementById('test2').style.display = "inline-block";
                     document.getElementById('next').style.display = "inline-block";
+
+                })
+                .onclick(function() {
                     document.getElementById('menu').style.display = "none";
                 });
-
         };
 
         function pork() {
@@ -307,6 +314,9 @@
             pos1.start()
                 .onComplete(function() {
                     document.getElementById('test3').style.display = "inline-block";
+                })
+                .onclick(function() {
+                    document.getElementById('menu').style.display = "none";
                 });
         };
 
