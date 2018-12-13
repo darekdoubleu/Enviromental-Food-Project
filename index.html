@@ -15,14 +15,17 @@
 
         #header {
             position: absolute;
-            width: 100%;
-            z-index: 100;
-            margin-top: 30px;
+            width: 50%;
+            height: 50%px;
+            margin: 25%;
             font-size: 90pt;
-            color: aliceblue;
-            background: #881515;
-            transition: opacity .8s ease-in;
+            text-align: center;
+            color: rgb(64, 64, 64);
+            background: rgba(188, 188, 188, 0.81);
+            border-radius: 15px;
+            box-shadow: 5px 5px 5px rgba(57, 57, 57, 0.62);
         }
+
 
         #badge {
             margin-top: 8px;
@@ -37,11 +40,14 @@
             width: 100%;
         }
 
+
+
         .button {
             margin: 40px;
-            background: #881515;
+            background: rgba(188, 188, 188, 0.81);
+            color: rgb(64, 64, 64);
+
             font-size: 20pt;
-            color: aliceblue;
             text-decoration: none;
             padding: 20px;
             border-radius: 5px;
@@ -52,11 +58,12 @@
 
         }
 
-        #header p {
-            margin-top: -10px;
-            font-size: 15pt;
+        #header h {
+
+            font-size: 100pt;
             color: aliceblue;
-            background: #881515;
+
+
 
         }
 
@@ -108,30 +115,7 @@
             position: fixed;
         }
 
-        a {
-            text-decoration: none;
-            display: inline-block;
-            padding: 8px 16px;
-        }
-
-        a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .previous {
-            background-color: #f1f1f1;
-            color: black;
-        }
-
-        .next {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .round {
-            border-radius: 50%;
-        }
+        #exit {}
 
     </style>
 </head>
@@ -151,24 +135,24 @@
 
     </div>
 
-    <div class="info_boxes">
+    <div id="info_boxes">
         <div id="test" style="display:none">
             <p>test</p>
         </div>
-        <div id="nextbox" style="display:none">
-            <p>electric</p>
-        </div>
+
         <div id="test2" style="display:none">
             <p>test2</p>
         </div>
         <div id="test3" style="display:none">
             <p>test3</p>
         </div>
+
     </div>
 
-
     <div id="inner">
-        <a href="#" id="enter" class="button" onclick="enter();">Enter</a>
+        <a href="#" id="enter" class="button" onclick="enter(); enter2()">Enter</a>
+
+        <a href="#" id="exit" class="button" onclick="exit(); exit2(); exit3(); exit4(); exit5();" style="display:none"></a>
 
         <div id="menu" style="display:none">
             <a href="#" class="button" onclick="burger();">Burger</a>
@@ -270,12 +254,10 @@
             }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
             pos1.start()
                 .onComplete(function() {
-                    document.getElementById('test').style.display = "inline-block";
+                    document.getElementById('test').style.display = "block";
+                    document.getElementById('exit').style.display = "block";
 
                 })
-                .onclick(function() {
-                    document.getElementById('menu').style.display = "none";
-                });
 
 
 
@@ -291,13 +273,13 @@
 
                 // .onComplete portion of code below sourced from https://github.com/sole/tween.js/blob/master/docs/user_guide.md       
                 .onComplete(function() {
-                    document.getElementById('test2').style.display = "inline-block";
+                    document.getElementById('test2').style.display = "block";
+
+                    document.getElementById('exit').style.display = "block";
 
 
                 })
-                .onclick(function() {
-                    document.getElementById('menu').style.display = "none";
-                });
+
         };
 
         function pork() {
@@ -308,20 +290,27 @@
             }, 4000).easing(TWEEN.Easing.Quadratic.InOut)
             pos1.start()
                 .onComplete(function() {
-                    document.getElementById('test3').style.display = "inline-block";
+                    document.getElementById('test3').style.display = "block";
+                    document.getElementById('exit').style.display = "block";
+
                 })
-                .onclick(function() {
-                    document.getElementById('menu').style.display = "none";
-                });
+
         };
 
-        function enter() {
+
+
+        function exit() {
             var pos1 = new TWEEN.Tween(camera.position).to({
                 x: -30,
                 y: 70,
                 z: -170
             }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
             pos1.start()
+                .onComplete(function() {
+                    document.getElementById('menu').style.display = "inline-block";
+                    document.getElementById('exit').style.display = "none";
+
+                })
 
 
         };
@@ -330,14 +319,6 @@
 
         //portion of code below sourced from https://stackoverflow.com/questions/32146295/how-can-i-make-my-header-disappear-and-reappear-by-clicking-a-button-and-also-ha
 
-        document.getElementById('inner').onclick = function() {
-            let gone = document.getElementById('header');
-            gone.style.opacity = 0;
-            setTimeout(() => {
-                gone.style.display = 'none';
-            }, 795)
-
-        };
 
 
         document.getElementById('inner').onclick = function() {
@@ -345,10 +326,45 @@
             gone.style.display = 'none';
         }
 
-        document.getElementById('enter').onclick = function() {
+
+
+        document.getElementById('menu').onclick = function() {
             let gone = document.getElementById('menu');
-            gone.style.display = 'block';
+            gone.style.display = 'none';
         }
+
+        function exit2() {
+            document.getElementById('test');
+            test.style.display = 'none';
+        }
+
+        function exit3() {
+            document.getElementById('test2');
+            test2.style.display = 'none';
+        }
+
+        function exit4() {
+            document.getElementById('test3');
+            test3.style.display = 'none';
+        }
+
+
+        function enter2() {
+            document.getElementById('header');
+            header.style.opacity = 0;
+            setTimeout(() => {
+                header.style.display = 'none';
+            }, 795)
+
+        }
+
+        function enter() {
+            document.getElementById('menu');
+            menu.style.display = 'inline-block';
+        }
+
+
+
 
 
 
